@@ -1,0 +1,229 @@
+/* start Global Rules */
+:root {
+    --main-color: #53beac;
+    --main-color-alt: #4fb3a2;
+    --main-background-color: #ececec;
+    --main-transition-timing: 0.3s;
+    --padding-w: 100px;
+    --main-color-p: #777;
+}
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Cairo', sans-serif;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+a {
+    text-decoration: none;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Small */
+@media (min-width: 768px) {
+    .container {
+    width: 750px;
+    }
+}
+  /* Medium */
+@media (min-width: 992px) {
+    .container {
+    width: 970px;
+    }
+}
+  /* Large */
+@media (min-width: 1200px) {
+    .container {
+    width: 1170px;
+    }
+}
+.main-title {
+    margin: 0 auto 80px;
+    border: 2px
+    solid black;
+    padding: 10px 20px;
+    font-size: 30px;
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+    transition: var(--main-transition-timing);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.main-title::before,
+.main-title::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: var(--main-color);
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    transform: translatey(-50%);
+    transition: 0.5s;
+}
+.main-title::before {
+    left: -30px;
+}
+.main-title::after {
+    right: -30px;
+}
+.main-title:hover::before {
+    z-index: -1;
+    animation: left-move 0.5s linear forwards;
+}
+.main-title:hover::after {
+    z-index: -1;
+    animation: right-move 0.5s linear forwards;
+}
+.main-title:hover {
+    color: white;
+    border-color: white;
+    transition-delay: 0.5s;
+}
+.modo {
+    padding-top: var(--padding-w);
+    padding-bottom: var(--padding-w);
+    position: relative;
+    background-color: var(--main-background-color);
+}
+.testimonials .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+.modo input {
+    border: none;
+    caret-color: var(--main-color);
+    padding: 20px;
+}
+.modo input:focus {
+    outline: none;
+}
+.modo input {
+    background-color: white;
+    border: 4px solid var(--main-color);
+}
+.modo label {
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--main-color);    
+}
+.modo .info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0.4;
+}
+.modo .holder {
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 767px) {
+    .modo .holder {
+        flex-direction: column;
+        align-items: center;
+    }
+    .modo .info:first-of-type {
+    margin-bottom: 50px;
+    }
+}
+.modo #result {
+    background-color: var(--main-color);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    margin: 50px auto;
+    display: block;
+}
+.modo .equal {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--main-color);
+}
+.testimonials .box {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+    border-radius: 6px;
+    position: relative;
+}
+.testimonials .box:nth-of-type(7) {
+    order: -1;
+}
+.testimonials .box img {
+    position: absolute;
+    right: -10px;
+    top: -50px;
+    width: 100px;
+    border-radius: 50%;
+    border: 10px solid var(--main-background-color);
+}
+.testimonials .box h3 {   
+    margin: 0 0 10px;
+    color: var(--main-color);
+    text-transform: capitalize;
+}
+.testimonials .box .title {
+    color: var(--main-color-p);
+    text-transform: capitalize;
+    display: block;
+    margin-bottom: 10px;
+}
+.testimonials .box .rate .full {
+    color: #ffc107;
+}
+.testimonials .box p {
+    line-height: 1.5;
+    margin-top: 10px;
+    color: var(--main-color-p);
+    margin-bottom: 0;
+}
+/* Animation */
+@keyframes left-move {
+    50% {
+        left: 0;
+        width: 12px;
+        height: 12px;
+    }
+    100% {
+        left: 0;
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+@keyframes right-move {
+    50% {
+        right: 0;
+        width: 12px;
+        height: 12px;
+    }
+    100% {
+        right: 0;
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
